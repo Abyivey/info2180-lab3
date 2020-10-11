@@ -14,6 +14,7 @@ window.onload = function(){
     BoardMod();
     console.log(board);
     board.addEventListener("click",Player);
+    board.addEventListener("mouseover", hover);
     
 }
 
@@ -42,6 +43,23 @@ function Player(e){
             e.target.classList.add("O");
         }
     }
+}
+
+function hover (e){
+    var board = document.getElementById("board");
+    var boardSect = board.getElementsByTagName("div");
+
+    switch (e.target.classList.contains("sqaure")){
+        case true:
+            for (i=0;i<boardSect.length;i++){
+                boardSect[i].classList.remove("hover");
+                break;
+            }
+        default:
+            e.target.classList.add("hover");
+        }
+        
+
 }
 
     
